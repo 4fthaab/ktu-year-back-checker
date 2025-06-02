@@ -12,15 +12,18 @@
   <div class="counter">Total Visitors: <span id="count">Loading...</span></div>
 
   <script>
-    // Only show if secret matches
     const urlParams = new URLSearchParams(window.location.search);
     const secret = urlParams.get('secret');
-    
+
     if (secret === '1234afthab') {
-      fetch('/.netlify/functions/get-visitor-count')
+      fetch('https://api.countapi.xyz/get/ktu-yearback-checker/visits')
         .then(response => response.json())
         .then(data => {
-          document.getElementById('count').textContent = data.count;
+          document.getElementById('count').textContent = data.value;
+        })
+        .catch(err => {
+          document.getElementById('count').textContent = 'Error loading count';
+          console.error(err);
         });
     } else {
       document.getElementById('count').textContent = 'Unauthorized';
