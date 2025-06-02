@@ -1,0 +1,8 @@
+[build]
+  functions = "netlify/functions"
+  publish = "."
+
+[[redirects]]
+  from = "/stats"
+  to = "/admin.html?secret=YOUR_SECRET_KEY"  # 👈 Change this!
+  status = 200
