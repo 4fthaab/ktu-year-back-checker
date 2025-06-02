@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTU Year Back Eligibility Checker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>KTU Year Back Eligibility Checker</h1>
+            <p class="subheader">Check your eligibility for promotion to the next academic year</p>
+        </header>
+
+        <div class="content">
+            <div class="switch-btns">
+                <button id="s4Btn" class="btn btn-primary btn-active">S4 Student</button>
+                <button id="s6Btn" class="btn btn-outline">S6 Student</button>
+            </div>
+
+            <div class="subjects-container">
+                <h3>Select your backlogged subjects:</h3>
+                <div id="subjectList"></div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Check Eligibility</button>
+
+            <div id="result" class="result-container" style="display: none;">
+                <div class="result-title">Eligibility Result</div>
+                <div id="resultContent"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; <small>Created by <a href="https://www.github.com/4fthaab" class="footer-link">4fthaab</a></small></p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

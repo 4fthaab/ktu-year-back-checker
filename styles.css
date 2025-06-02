@@ -1,0 +1,253 @@
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --success: #4cc9f0;
+  --danger: #f72585;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --transition: all 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: #f5f7ff;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: 25px 30px;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.subheader {
+  font-weight: 300;
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.content {
+  padding: 30px;
+}
+
+.switch-btns {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-active {
+  background-color: var(--primary-dark);
+  box-shadow: inset 0 0 0 2px white;
+}
+
+.subjects-container {
+  margin-bottom: 30px;
+}
+
+.semester-group {
+  background: var(--light);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.semester-title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.semester-title::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.subject-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.subject-item:last-child {
+  border-bottom: none;
+}
+
+.subject-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.subject-label {
+  flex: 1;
+  cursor: pointer;
+}
+
+.subject-credit {
+  font-size: 0.85rem;
+  color: var(--gray);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 25px;
+}
+
+.submit-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  font-size: 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.alert-success {
+  background-color: #e6f9f2;
+  color: #1a7f5a;
+  border-left: 5px solid #38c172;
+}
+
+.alert-error {
+  background-color: #fff0f3;
+  color: #c92a2a;
+  border-left: 5px solid #f03e3e;
+}
+
+.alert-icon {
+  font-size: 1.8rem;
+  margin-right: 15px;
+  margin-top: 2px;
+}
+
+.alert-text strong {
+  font-size: 1.1rem;
+}
+
+.credit-info {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  border: 1px dashed var(--gray);
+}
+
+.credit-info p {
+  margin: 6px 0;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: var(--gray);
+  font-size: 0.85rem;
+}
+
+.footer-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .content {
+padding: 20px;
+  }
+  
+  .switch-btns {
+flex-direction: column;
+  }
+}
