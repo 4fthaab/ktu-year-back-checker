@@ -1,9 +1,8 @@
-// netlify/functions/get-visitor-count.js
 const fs = require('fs');
 const path = require('path');
 
 exports.handler = async (event, context) => {
-  const filePath = path.join(process.cwd(), 'visitor-count.json');
+  const filePath = path.join(__dirname, '..', '..', 'visitor-count.json');
   
   try {
     let countData = { count: 0 };
@@ -14,7 +13,10 @@ exports.handler = async (event, context) => {
     
     return {
       statusCode: 200,
-      body: JSON.stringify({ count: countData.count })
+      body: JSON.stringify({ 
+        count: countData.count,
+        lastUpdated: new Date().toISOString()
+      })
     };
   } catch (err) {
     return {
