@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/stats"
-  to = "/admin.html?secret=1fthabrahm1n"  # 👈 Change this!
+  to = "/admin.html?secret=1fthabrahm1n" 
   status = 200
