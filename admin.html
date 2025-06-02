@@ -12,16 +12,24 @@
   <div class="counter">Total Visitors: <span id="count">Loading...</span></div>
 
 <script>
-  fetch('https://api.countapi.xyz/get/ktu-yearback-checker/visits')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('count').textContent = data.value;
-    })
-    .catch(err => {
-      document.getElementById('count').textContent = 'Error loading count';
-      console.error(err);
-    });
+  const binId = "683dd2bf8a456b7966a89d85";
+  const apiKey = "$2a$10$pgK0ei8oFFDJNor.vEO2leDn89JQuhcc7V6Ax1gqKnNN9ll3QUnP.";
+
+  fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+    headers: {
+      'X-Master-Key': apiKey
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("count").textContent = data.record.visits;
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("count").textContent = "Error loading count";
+  });
 </script>
+
 
 </body>
 </html>
