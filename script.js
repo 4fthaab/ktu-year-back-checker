@@ -148,8 +148,8 @@ checkedBoxes.forEach(box => {
 // Earned credits = totalCredits – backlogCredits
 const earnedCredits = totalCredits - backlogCredits;
 
-// Set required threshold (21 for S4, 42 for S6)
-const required = (currentSemester === 'S4') ? 21 : 42;
+// Set required threshold (21 for S4, 47 for S6)
+const required = (currentSemester === 'S4') ? 21 : 47;
 
 const semRange = (currentSemester === 'S4') ? 'S1 - S2' : 'S1 - S4';
 const passed = earnedCredits >= required;
