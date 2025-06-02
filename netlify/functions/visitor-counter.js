@@ -1,14 +1,14 @@
-// netlify/functions/visitor-counter.js
 const fs = require('fs');
 const path = require('path');
 
 exports.handler = async (event, context) => {
-  const filePath = path.join(process.cwd(), 'visitor-count.json');
+  // Path to store the count
+  const filePath = path.join(__dirname, '..', '..', 'visitor-count.json');
   
   try {
     let countData = { count: 0 };
     
-    // Read existing count or create new file
+    // Read existing count if file exists
     if (fs.existsSync(filePath)) {
       countData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     }
@@ -17,11 +17,11 @@ exports.handler = async (event, context) => {
     countData.count += 1;
     
     // Save updated count
-    fs.writeFileSync(filePath, JSON.stringify(countData));
+    fs.writeFileSync(filePath, JSON.stringify(countData, null, 2));
     
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true })
+      body: JSON.stringify({ success: true, newCount: countData.count })
     };
   } catch (err) {
     return {
