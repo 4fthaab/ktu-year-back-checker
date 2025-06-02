@@ -10,7 +10,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <script>
-  fetch('/.netlify/functions/visitor-counter', { method: 'POST' });
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('/.netlify/functions/visitor-counter')
+    .then(response => response.json())
+    .then(data => console.log('Visitor counted:', data))
+    .catch(err => console.error('Counter error:', err));
+});
 </script>
 <body>
     <div class="container">
