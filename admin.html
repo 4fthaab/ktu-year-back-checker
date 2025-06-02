@@ -1,35 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Visitor Stats</title>
+  <meta charset="UTF-8">
+  <title>Visitor Dashboard</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    .counter { font-size: 2em; font-weight: bold; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f9;
+      padding: 40px;
+      color: #333;
+    }
+
+    .dashboard {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .dashboard-title {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+    }
+
+    .card-label {
+      font-size: 20px;
+      font-weight: 500;
+      color: #7f8c8d;
+    }
+
+    .card-count {
+      font-size: 48px;
+      font-weight: bold;
+      color: #2d3436;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Visitor Statistics</h1>
-  <div class="counter">Total Visitors: <span id="count">Loading...</span></div>
+  <div class="dashboard">
+    <h1 class="dashboard-title">KTU YEAR BACK ELIGIBILITY CHECKER</h1>
+    <h2 class="dashboard-title">📊 Visitor Dashboard</h2>
+    <div class="card">
+      <div class="card-label">Total Visitors</div>
+      <div class="card-count" id="count">Loading...</div>
+    </div>
+  </div>
+  <script>
+    const binId = "683dd2bf8a456b7966a89d85";
+    const apiKey = "$2a$10$pgK0ei8oFFDJNor.vEO2leDn89JQuhcc7V6Ax1gqKnNN9ll3QUnP.";
 
-<script>
-  const binId = "683dd2bf8a456b7966a89d85";
-  const apiKey = "$2a$10$pgK0ei8oFFDJNor.vEO2leDn89JQuhcc7V6Ax1gqKnNN9ll3QUnP.";
-
-  fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
-    headers: {
-      'X-Master-Key': apiKey
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("count").textContent = data.record.visits;
-  })
-  .catch(err => {
-    console.error(err);
-    document.getElementById("count").textContent = "Error loading count";
-  });
-</script>
-
-
+    fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+      headers: {
+        'X-Master-Key': apiKey
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("count").textContent = data.record.visits;
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("count").textContent = "Error loading count";
+      });
+  </script>
 </body>
+<footer>
+  <p style="display: flex; justify-content: center; padding: 20px;">&copy; <small>Created by <a
+        href="https://www.github.com/4fthaab" class="footer-link">4fthaab</a></small></p>
+</footer>
+
 </html>
