@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visitor Stats</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .counter { font-size: 2em; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Visitor Statistics</h1>
+  <div class="counter">Total Visitors: <span id="count">Loading...</span></div>
+
+  <script>
+    // Only show if secret matches
+    const urlParams = new URLSearchParams(window.location.search);
+    const secret = urlParams.get('secret');
+    
+    if (secret === '1fthabrahm1n') {
+      fetch('/.netlify/functions/get-visitor-count')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('count').textContent = data.count;
+        });
+    } else {
+      document.getElementById('count').textContent = 'Unauthorized';
+    }
+  </script>
+</body>
+</html>
