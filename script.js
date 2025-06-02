@@ -4,6 +4,7 @@ const allSubjects = {
     { name: 'Engineering Physics A', credit: 4 },
     { name: 'Engineering Graphics', credit: 3 },
     { name: 'Basics of Civil & Mechanical Engineering', credit: 4 },
+    { name: 'Life Skills', credit: 0 },
     { name: 'Engineering Physics Lab', credit: 1 },
     { name: 'Civil & Mechanical Workshop', credit: 1 }
   ],
@@ -13,6 +14,7 @@ const allSubjects = {
     { name: 'Engineering Mechanics', credit: 3 },
     { name: 'Basics of Electrical & Electronics Engineering', credit: 4 },
     { name: 'Programming in C', credit: 4 },
+    { name: 'Professional Communication', credit: 0 },
     { name: 'Engineering Chemistry Lab', credit: 1 },
     { name: 'Electrical & Electronics Workshop', credit: 1 }
   ],
@@ -22,6 +24,7 @@ const allSubjects = {
     { name: 'Logic System Design', credit: 4 },
     { name: 'Object Oriented Programming Using Java', credit: 4 },
     { name: 'Professional Ethics', credit: 2 },
+    { name: 'Sustainable Engineering', credit: 0 },
     { name: 'Data Structures Lab', credit: 2 },
     { name: 'OOP Lab (Java)', credit: 2 }
   ],
@@ -31,6 +34,7 @@ const allSubjects = {
     { name: 'Database Management Systems', credit: 4 },
     { name: 'Operating Systems', credit: 4 },
     { name: 'Design & Engineering', credit: 2 },
+    { name: 'Constitution of India', credit: 0 },
     { name: 'Digital Lab', credit: 2 },
     { name: 'Operating Systems Lab', credit: 2 }
   ]
@@ -102,7 +106,7 @@ function renderSubjects() {
 
       const credit = document.createElement('span');
       credit.className = 'subject-credit';
-      credit.textContent = `${subj.credit} credit${subj.credit !== 1 ? 's' : ''}`;
+      credit.textContent =`${subj.credit} credit${subj.credit > 1 ? 's' : ''}`;
 
       subjectItem.appendChild(checkbox);
       subjectItem.appendChild(label);
