@@ -10,13 +10,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('/.netlify/functions/visitor-counter')
-    .then(response => response.json())
-    .then(data => console.log('Visitor counted:', data))
-    .catch(err => console.error('Counter error:', err));
-});
+  const binId = "683dd2bf8a456b7966a89d85";
+  const apiKey = "$2a$10$pgK0ei8oFFDJNor.vEO2leDn89JQuhcc7V6Ax1gqKnNN9ll3QUnP.";
+
+  // Step 1: Get current count
+  fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+    headers: {
+      'X-Master-Key': apiKey
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    const newCount = data.record.visits + 1;
+
+    // Step 2: Update the count
+    return fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': apiKey
+      },
+      body: JSON.stringify({ visits: newCount })
+    });
+  })
+  .then(() => console.log("Visitor count updated"))
+  .catch(console.error);
 </script>
+
 <body>
     <div class="container">
         <header>
